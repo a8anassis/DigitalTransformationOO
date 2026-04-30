@@ -10,7 +10,9 @@ public class Main {
             aliceAccount.withdraw(1000.0, "GR1234");
             System.out.println("Alice's balance is " + aliceAccount.getBalance());
         } catch (Exception e) {
-            System.out.println("Oops! An error occurred: ");
+            System.out.println("An error occurred: ");
         }
+
+
     }
 }

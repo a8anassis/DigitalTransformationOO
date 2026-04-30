@@ -7,7 +7,7 @@ public class Point {
     }
 
     public Point(double x) {
-
+        this.x = x;
     }
 
     public double getX() {
