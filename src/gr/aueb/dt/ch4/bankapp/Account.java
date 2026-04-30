@@ -80,10 +80,10 @@ public class Account {
      */
     public void deposit(double amount) throws Exception {
         try {
-            if (amount < 0) throw new Exception("The amount should be positive.");
+            if (amount < 0) throw new NegativeAmountException("The amount should be positive.");
             balance += amount;
             // log
-        } catch (Exception e) {
+        } catch (NegativeAmountException e) {
             // logging
             System.err.println("Negative amount = " + amount + " is not allowed." + "\n");
             throw e;
@@ -92,11 +92,11 @@ public class Account {
 
     public void withdraw(double amount, String ssn) throws Exception {
         try {
-            if (amount < 0) throw new Exception("The amount should be positive.");
-            if (amount > balance) throw new Exception("The balance is insufficient.");
-            if (!isSsnValid(ssn)) throw new Exception("The SSN is invalid.");
+            if (amount < 0) throw new NegativeAmountException("The amount should not be negative.");
+            if (amount > balance) throw new InsufficientBalanceException("The balance is insufficient.");
+            if (!isSsnValid(ssn)) throw new SsnNotValidException("The SSN is invalid.");
             balance -= amount;
-        } catch (Exception e) {
+        } catch (NegativeAmountException | InsufficientBalanceException | SsnNotValidException e) {
             System.err.println("Withdrawal failed: " + e.getMessage() + "\n");
             throw e;
         }
