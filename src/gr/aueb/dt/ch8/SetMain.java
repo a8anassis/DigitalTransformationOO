@@ -17,5 +17,8 @@ public class SetMain {
         } else {
             System.out.println("Apple is not included in the bag.");
         }
+
+        bag.forEach(el -> System.out.println(el));
+        bag.forEach(System.out::println);
     }
 }

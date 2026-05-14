@@ -51,5 +51,8 @@ public class ListMain {
 
         cities.removeIf(c -> c.equals("Tokyo"));
 
+        cities.forEach((c) -> System.out.println(c));
+        cities.forEach(System.out::println);
+
     }
 }
